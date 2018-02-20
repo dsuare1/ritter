@@ -24,7 +24,7 @@ $ bundle install --without production
 
 Next, migrate the database:
 ```
-$ rails db:migrate (or $rake db:migrate for < Rails 5
+$ rails db:migrate (or $rake db:migrate for < Rails 5)
 ```
 
 Finally, run the test suite to verify that everything is working correctly:
