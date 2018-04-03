@@ -5,7 +5,8 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user = users(:test_user)
   end
 
-  test 'update profile failure invalid info provided' do
+  test "update profile failure invalid info provided" do
+    log_in_as(@user)
     get edit_user_path(@user)
     assert_template 'users/edit'
     patch user_path(@user), params: { user: { name: '',
@@ -16,9 +17,11 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_select 'div.alert', 'The form contains 4 errors.'
   end
 
-  test 'successful edit of user information' do
+  test "successful edit of user information, with friendly forwarding" do
     get edit_user_path(@user)
-    assert_template 'users/edit'
+    assert_equal session[:forwarding_url], edit_user_url(@user)
+    log_in_as(@user)
+    assert_redirected_to edit_user_url(@user)
     name = 'Foo Bar'
     email = 'foo@bar.com'
     patch user_path(@user), params: { user: { name: name,
