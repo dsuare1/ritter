@@ -4,40 +4,56 @@ admin_user:
   email: admin@dbseeds.com
   password_digest: <%= User.digest('password') %>
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 test_user:
   name: Test User
   email: test@example.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 test_user_2:
   name: Test User2
   email: test2@example.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 frodo:
   name: Frodo Baggins
   email: frodo@lotr.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 samwise:
   name: Samwise Gamgee
   email: samwise@lotr.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 merry:
   name: Merry Brandybuck
   email: merry@lotr.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 pippin:
   name: Pippin Took
   email: pippin@lotr.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 <% 30.times do |n| %>
 user_<%= n %>:
   name: <%= "User-#{n}" %>
   email: <%= "user-#{n}@example.com" %>
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>
