@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+most_recent:
+  content: Lorem ipsum dolor sit amet.
+  created_at: <%= Time.zone.now %>
+
+candy_bar:
+  content: Snickers is my favorite candy bar now, but when I was a kid it was Butterfinger.
+  created_at: <%= 1.hour.ago %>
+
+maru_the_cat:
+  content: Maru is one of the greatest cats ever; check him out at https://www.youtube.com/watch?v=W0mmsnp0j18
+  created_at: <%= 2.days.ago %>
+
+the_masters:
+  content: I was really pulling for Rory to win; too bad.
+  created_at: <%= 1.week.ago %>
+
+next_vacation:
+  content: I'm looking forward to going on a vacation abroad again sometime soon; not sure where though.
+  created_at: <%= 2.months.ago %>
