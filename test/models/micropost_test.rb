@@ -21,11 +21,11 @@ class MicropostTest < ActiveSupport::TestCase
   end
 
   test "content should not consist of more than 140 characters" do
-    @micropost.content = "a" * 141
+    @micropost.content = "a" * 351
     assert_not @micropost.valid?
   end
 
-  test "order should be most recent furst" do
+  test "order should be most recent first" do
     assert_equal microposts(:most_recent), Micropost.first
   end
 end

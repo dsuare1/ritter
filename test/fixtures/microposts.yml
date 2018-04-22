@@ -2,19 +2,31 @@
 most_recent:
   content: Lorem ipsum dolor sit amet.
   created_at: <%= Time.zone.now %>
+  user: admin_user
 
 candy_bar:
   content: Snickers is my favorite candy bar now, but when I was a kid it was Butterfinger.
   created_at: <%= 1.hour.ago %>
+  user: admin_user
 
 maru_the_cat:
   content: Maru is one of the greatest cats ever; check him out at https://www.youtube.com/watch?v=W0mmsnp0j18
   created_at: <%= 2.days.ago %>
+  user: admin_user
 
 the_masters:
   content: I was really pulling for Rory to win; too bad.
   created_at: <%= 1.week.ago %>
+  user: admin_user
 
 next_vacation:
   content: I'm looking forward to going on a vacation abroad again sometime soon; not sure where though.
   created_at: <%= 2.months.ago %>
+  user: admin_user
+
+<% 30.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 35.days.ago %>
+  user: admin_user
+<% end %>
