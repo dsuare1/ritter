@@ -4,4 +4,18 @@
     <%= f.text_area :content, placeholder: 'Post something here...' %>
   </div>
   <%= f.submit 'Post', class: 'btn btn-primary' %>
+  <span class="image">
+    <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
 <% end %>
+
+<script type="text/javascript">
+  $('#micropost_image').on('change', function() {
+     const sizeInMB = $(this).files[0].size/1024/1024;
+
+     if (sizeInMB > 5) {
+         $(this).val('');
+         alert('File chosen exceeds maximum size limit (5MB); please choose a smaller file.');
+     }
+  });
+</script>

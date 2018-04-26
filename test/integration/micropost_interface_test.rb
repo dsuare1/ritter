@@ -10,6 +10,7 @@ class MicropostInterfaceTest < ActionDispatch::IntegrationTest
     get root_path
     assert_select 'ol.microposts'
     assert_select 'div.pagination'
+    assert_select 'input[type=file]'
     # invalid post
     assert_no_difference 'Micropost.count' do
       post microposts_path, params: { micropost: { content: '' } }
@@ -17,9 +18,11 @@ class MicropostInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'div#error_explanation'
     # valid post
     content = 'Valid test micropost submission.'
+    image = fixture_file_upload('test/fixtures/rails.png', 'image/png')
     assert_difference 'Micropost.count', 1 do
-      post microposts_path, params: { micropost: { content: 'Valid test micropost submission.' } }
+      post microposts_path, params: { micropost: { content: 'Valid test micropost submission.', image: image } }
     end
+    # assert FILL_IN.image?
     assert_redirected_to root_url
     follow_redirect!
     assert_match content, response.body
