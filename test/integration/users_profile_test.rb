@@ -19,4 +19,11 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
       assert_match micropost.content, response.body
     end
   end
+
+  test "display stats on user's home page" do
+    log_in_as(@user)
+    get root_url
+    assert_select 'div.stats'
+    assert_select 'a[href=?]', user_path(@user)
+  end
 end

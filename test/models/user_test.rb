@@ -82,8 +82,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should follow and unfollow a user" do
-    user1 = users(:admin_user)
-    user2 = users(:test_user)
+    user1 = users(:pippin)
+    user2 = users(:test_user_2)
     assert_not user1.following?(user2)
     user1.follow(user2)
     assert user1.following?(user2)

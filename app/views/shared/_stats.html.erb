@@ -1,5 +1,6 @@
 <% @user ||= current_user %>
 <div class="stats">
+  <%#= render 'follow_form' if logged_in? %>
   <a href="<%= following_user_path(@user) %>">
     <strong id="following" class="stat"><%= @user.following.count %></strong> following
   </a>
